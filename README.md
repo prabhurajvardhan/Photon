@@ -15,7 +15,7 @@ Measured on Kaggle `x86_64` CPU (4 threads, KV-Cached INT4 ONNX) and NVIDIA T4 G
 
 ## Quickstart
 ```bash
-pip install nanoware-photon
+pip install --pre nanoware-photon
 photon fix app.py --line 42 --err "NameError: name 'requests' is not defined" --apply
 ```
 

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nanoware-photon"
-version = "0.1.0-beta"
+version = "0.1.0b1"
 description = "Photon by Nanoware AI — ~49 MB offline Python & TypeScript patch engine & MCP server."
 readme = "README.md"
 license = { text = "Apache-2.0" }
