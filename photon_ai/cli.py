@@ -25,10 +25,16 @@ def main():
     fp = sub.add_parser("fix")
     fp.add_argument("file"); fp.add_argument("--line", type=int, required=True); fp.add_argument("--err", required=True); fp.add_argument("--apply", action="store_true")
     sub.add_parser("mcp")
+    http = sub.add_parser("serve-http")
+    http.add_argument("--host", default="0.0.0.0")
+    http.add_argument("--port", type=int, default=8080)
     args = p.parse_args()
     eng = TinyCodeEngine()
     if args.cmd == "mcp":
         run_mcp(eng)
+    elif args.cmd == "serve-http":
+        from .remote_server import serve_http
+        serve_http(args.host, args.port, engine=eng)
     else:
         ctx, bfn = slice_huge_file_surgical(args.file, args.line)
         fix = eng.generate_patch("py" if args.file.endswith(".py") else "ts", args.err, ctx, bfn)
